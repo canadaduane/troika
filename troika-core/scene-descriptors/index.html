@@ -1,0 +1,1181 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="Jason Johnston">
+      
+      
+        <link rel="canonical" href="https://protectwise.github.io/troika/troika-core/scene-descriptors/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-7.2.3">
+    
+    
+      
+        <title>Scene Descriptors - Troika JS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f7f47774.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+  
+
+
+
+  
+  
+
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-189971966-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#a-basic-descriptor" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Troika JS" class="md-header__button md-logo" aria-label="Troika JS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M369.9 97.9 286 14C277 5 264.8-.1 252.1-.1H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V131.9c0-12.7-5.1-25-14.1-34zM332.1 128H256V51.9l76.1 76.1zM48 464V48h160v104c0 13.3 10.7 24 24 24h104v288H48z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Troika JS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Scene Descriptors
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/protectwise/troika/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Troika JS" class="md-nav__button md-logo" aria-label="Troika JS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M369.9 97.9 286 14C277 5 264.8-.1 252.1-.1H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V131.9c0-12.7-5.1-25-14.1-34zM332.1 128H256V51.9l76.1 76.1zM48 464V48h160v104c0 13.3 10.7 24 24 24h104v288H48z"/></svg>
+
+    </a>
+    Troika JS
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/protectwise/troika/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Troika Framework
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Troika Framework" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Troika Framework
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      <label class="md-nav__link" for="__nav_3_1">
+        Getting Started
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/setup/" class="md-nav__link">
+        Setup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/examples/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      <label class="md-nav__link" for="__nav_3_2">
+        Core Concepts
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Core Concepts" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Core Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../facades/" class="md-nav__link">
+        Facades
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Scene Descriptors
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Scene Descriptors
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-basic-descriptor" class="md-nav__link">
+    A Basic Descriptor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-descriptor-properties" class="md-nav__link">
+    Special Descriptor Properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Special Descriptor Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key" class="md-nav__link">
+    key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#children" class="md-nav__link">
+    children
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transition-animation-exitanimation" class="md-nav__link">
+    transition, animation, exitAnimation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pointerstates" class="md-nav__link">
+    pointerStates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ref" class="md-nav__link">
+    ref
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-lists" class="md-nav__link">
+    Data Lists
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternate-jsx-syntax" class="md-nav__link">
+    Alternate JSX syntax
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interactivity-and-events/" class="md-nav__link">
+        Interactivity and Events
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../animations-and-transitions/" class="md-nav__link">
+        Animations and Transitions
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      <label class="md-nav__link" for="__nav_3_3">
+        Troika 3D
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Troika 3D" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Troika 3D
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troika-3d/" class="md-nav__link">
+        Troika 3D - Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troika-3d/scenes/" class="md-nav__link">
+        Creating a 3D Scene
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troika-3d/objects/" class="md-nav__link">
+        Adding 3D Objects
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troika-3d/interactivity-and-events/" class="md-nav__link">
+        Interactivity and Events in 3D
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troika-3d/performance/" class="md-nav__link">
+        Performance Optimization
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troika-3d/instancing/" class="md-nav__link">
+        GPU Instancing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troika-3d/html-overlays/" class="md-nav__link">
+        HTML Overlays
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troika-3d/text/" class="md-nav__link">
+        3D Text
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troika-3d-ui/" class="md-nav__link">
+        3D User Interfaces
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troika-xr/" class="md-nav__link">
+        WebXR
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      <label class="md-nav__link" for="__nav_3_4">
+        Troika 2D
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Troika 2D" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Troika 2D
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troika-2d/" class="md-nav__link">
+        Troika 2D - Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troika-2d/objects/" class="md-nav__link">
+        Interactivity in 2D
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troika-2d/html-overlays/" class="md-nav__link">
+        HTML Overlays
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Troika Tools for Three.js
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Troika Tools for Three.js" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Troika Tools for Three.js
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troika-three-text/" class="md-nav__link">
+        Troika 3D Text
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troika-three-utils/createDerivedMaterial/" class="md-nav__link">
+        Derived Materials
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troika-three-utils/BezierMesh/" class="md-nav__link">
+        BezierMesh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../three-instanced-uniforms-mesh/" class="md-nav__link">
+        InstancedUniformsMesh
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Other Tools
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Other Tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Other Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troika-worker-utils/" class="md-nav__link">
+        Worker Modules
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-basic-descriptor" class="md-nav__link">
+    A Basic Descriptor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-descriptor-properties" class="md-nav__link">
+    Special Descriptor Properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Special Descriptor Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key" class="md-nav__link">
+    key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#children" class="md-nav__link">
+    children
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transition-animation-exitanimation" class="md-nav__link">
+    transition, animation, exitAnimation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pointerstates" class="md-nav__link">
+    pointerStates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ref" class="md-nav__link">
+    ref
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-lists" class="md-nav__link">
+    Data Lists
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternate-jsx-syntax" class="md-nav__link">
+    Alternate JSX syntax
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/protectwise/troika/edit/master/docs/troika-core/scene-descriptors.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>Scene Descriptors</h1>
+                
+                <p>The <em>scene descriptor</em> describes the structure of your scene at a point in time. As you apply new scene descriptors over time based on the changing state of your application, Troika tracks the differences from one descriptor to the next, and creates/destroys/updates a tree of <a href="../facades/"><em>Facade</em></a> instances to match.</p>
+<p>Describing your scene declaratively this way removes the mental overhead of having to track and modify individual objects over time, making your scenes much easier to understand and debug.</p>
+<p>If you are familiar with <a href="https://reactjs.org">React</a>, this will feel very familiar. In fact Troika's scene descriptor model is highly inspired by React. The scene descriptor behaves very much like JSX descriptors, and Troika's Facades are in some ways similar to React's Components.</p>
+<h2 id="a-basic-descriptor">A Basic Descriptor<a class="headerlink" href="#a-basic-descriptor" title="Permanent link">&para;</a></h2>
+<p>A descriptor is just a plain JS object with a set of properties. Here's a basic example:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nx">facade</span><span class="o">:</span> <span class="nx">BallFacade</span><span class="p">,</span>
+  <span class="nx">x</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span>
+  <span class="nx">y</span><span class="o">:</span> <span class="mf">5</span><span class="p">,</span>
+  <span class="nx">z</span><span class="o">:</span> <span class="o">-</span><span class="mf">10</span><span class="p">,</span>
+  <span class="nx">color</span><span class="o">:</span> <span class="mh">0x3333cc</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The only property that a descriptor <em>must</em> include is <code>facade</code>. It defines the specific <code>Facade</code> subclass that will be instantiated for this object.</p>
+<p>All the other properties are simply copied to that facade instance when the scene is updated. That specific facade's implementation controls what those properties <em>mean</em> in terms of their representation in your graphical scene. Typically this means syncing those property changes to a more complex underlying API such as a Three.js mesh/geometry/material.</p>
+<blockquote>
+<p>While Troika has a few built-in facade types, for the most part they will be something that you must implement for the kinds of objects in your scene. See <a href="../facades/">Facade Basics</a> for details and simple examples.</p>
+</blockquote>
+<h2 id="special-descriptor-properties">Special Descriptor Properties<a class="headerlink" href="#special-descriptor-properties" title="Permanent link">&para;</a></h2>
+<p>While most properties are just copied to the facade instance, a few of them have special meanings:</p>
+<h3 id="key"><code>key</code><a class="headerlink" href="#key" title="Permanent link">&para;</a></h3>
+<p>A descriptor <em>may</em> include a <code>key</code> string property, identifying the specific facade instance corresponding to that descriptor object. The key must be unique among its siblings within a given parent.</p>
+<p>If omitted, Troika will generate a key internally based on the <code>facade</code> subclass and position among siblings. However it is recommended that you always include an explicit <code>key</code>, to avoid sometimes confusing situations with instance swapping, particularly when using animations and transitions.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nx">facade</span><span class="o">:</span> <span class="nx">BallFacade</span><span class="p">,</span>
+  <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;ball1&#39;</span><span class="p">,</span>
+  <span class="nx">x</span><span class="o">:</span> <span class="o">-</span><span class="mf">2</span>
+<span class="p">},</span>
+<span class="p">{</span>
+  <span class="nx">facade</span><span class="o">:</span> <span class="nx">BallFacade</span><span class="p">,</span>
+  <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;ball2&#39;</span><span class="p">,</span>
+  <span class="nx">x</span><span class="o">:</span> <span class="mf">2</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="children"><code>children</code><a class="headerlink" href="#children" title="Permanent link">&para;</a></h3>
+<p>Many Troika facades (those inheriting from <a href="../facades/#parentfacade"><code>ParentFacade</code></a>) allow a <code>children</code> property, pointing to an array of child descriptors, or a single child descriptor object if there is only one.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nx">facade</span><span class="o">:</span> <span class="nx">Group3DFacade</span><span class="p">,</span>
+  <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;group&#39;</span><span class="p">,</span>
+  <span class="nx">rotateZ</span><span class="o">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mf">2</span><span class="p">,</span>
+  <span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nx">facade</span><span class="o">:</span> <span class="nx">BallFacade</span><span class="p">,</span>
+      <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;ball1&#39;</span><span class="p">,</span>
+      <span class="nx">x</span><span class="o">:</span> <span class="o">-</span><span class="mf">2</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nx">facade</span><span class="o">:</span> <span class="nx">BallFacade</span><span class="p">,</span>
+      <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;ball2&#39;</span><span class="p">,</span>
+      <span class="nx">x</span><span class="o">:</span> <span class="mf">2</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="transition-animation-exitanimation"><code>transition</code>, <code>animation</code>, <code>exitAnimation</code><a class="headerlink" href="#transition-animation-exitanimation" title="Permanent link">&para;</a></h3>
+<p>A descriptor with one of these properties causes the instantiated Facade class to be wrapped as <code>Animatable</code>, allowing you to declaratively define how other property values should change over time.</p>
+<p>These are based very closely on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions">CSS Transitions</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations">CSS Keyframe Animations</a>, and are covered in detail in <a href="../animations-and-transitions/">Animations and Transitions</a>.</p>
+<h3 id="pointerstates"><code>pointerStates</code><a class="headerlink" href="#pointerstates" title="Permanent link">&para;</a></h3>
+<p>Similarly, the presence of a <code>pointerStates</code> property will wrap the facade instance so that it automatically changes its state in response to pointer events. This gives you declarative control over styling for <code>hover</code> and <code>active</code> states, much like CSS pseudoclasses, without having to write imperative event handlers every time. This is covered in detail in <a href="../interactivity-and-events/#pointer-states">Interactivity and Events</a>.</p>
+<h3 id="ref"><code>ref</code><a class="headerlink" href="#ref" title="Permanent link">&para;</a></h3>
+<p>If your code needs a reference to the <code>Facade</code> object instantiated for a given descriptor, you can give it a <code>ref</code> property pointing to a function. That function will be called, passed the facade instance as its argument, when the facade is created. It will also be called, with <code>null</code> as its argument, when the facade is destroyed (removed from the scene.)</p>
+<p>If the <code>ref</code> is reassigned to a different function during an update, the old one will be called with <code>null</code> and the new one will be called with the facade instance. This is usually not what you want, so to avoid this churn make sure the exact same function is passed across updates.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">ballRefFunction</span><span class="p">(</span><span class="nx">ballFacade</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;BallFacade was &#39;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">ballFacade</span> <span class="o">?</span> <span class="s1">&#39;created&#39;</span> <span class="o">:</span> <span class="s1">&#39;destroyed&#39;</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="c1">//...</span>
+
+<span class="p">{</span>
+  <span class="nx">facade</span><span class="o">:</span> <span class="nx">BallFacade</span><span class="p">,</span>
+  <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;ball&#39;</span><span class="p">,</span>
+  <span class="nx">ref</span><span class="o">:</span> <span class="nx">ballRefFunction</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>As in React, there is <a href="https://reactjs.org/docs/refs-and-the-dom.html">seldom a need to use <code>ref</code></a>, but it can be a useful tool in those rare cases.</p>
+<h2 id="data-lists">Data Lists<a class="headerlink" href="#data-lists" title="Permanent link">&para;</a></h2>
+<p>In cases where you need to describe a large number of scene objects, such as when you are mapping from a large set of data items, it is inefficient to create a large array of <code>children</code> with a scene descriptor object for each item. Troika provides a <code>ListFacade</code> to handle these cases more efficiently.</p>
+<p>Instead of a descriptor object for each item, you define a single descriptor object bound to a <code>data</code> array, with a <code>template</code> object that describes how the items in that <code>data</code> array should be mapped to facade instances.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span><span class="nx">ListFacade</span><span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;troika-3d&#39;</span>
+
+<span class="c1">//...</span>
+
+<span class="p">{</span>
+  <span class="nx">facade</span><span class="o">:</span> <span class="nx">ListFacade</span><span class="p">,</span>
+  <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;myList&#39;</span><span class="p">,</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="nx">myArrayOfDataItems</span><span class="p">,</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">facade</span><span class="o">:</span> <span class="nx">BallFacade</span><span class="p">,</span>
+    <span class="nx">key</span><span class="o">:</span> <span class="nx">d</span> <span class="p">=&gt;</span> <span class="nx">d</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+    <span class="nx">x</span><span class="o">:</span> <span class="p">(</span><span class="nx">d</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">i</span> <span class="o">*</span> <span class="mf">2</span><span class="p">,</span>
+    <span class="nx">y</span><span class="o">:</span> <span class="nx">d</span> <span class="p">=&gt;</span> <span class="nx">d</span><span class="p">.</span><span class="nx">value</span> <span class="o">/</span> <span class="nx">maxValue</span> <span class="o">*</span> <span class="mf">10</span><span class="p">,</span>
+    <span class="nx">z</span><span class="o">:</span> <span class="o">-</span><span class="mf">10</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This pattern is inspired by how <a href="https://github.com/d3/d3-selection-multi#selection_attrs">d3.js</a> binds data to attributes without creating a full set of intermediary objects.</p>
+<p>Each property in the <code>template</code> can either be a constant literal value (e.g. a number or string), or a function. Literals will be copied directly to each spawned child. Functions will be called for each item, passing three arguments: the current item from the <code>data</code> array, the current index in the array, and the full array. The value returned by the function will be copied to that child facade.</p>
+<p>In cases where you want an actual function to be copied, such as assigning event handlers, you will need to wrap those in a function that returns your function.</p>
+<div class="highlight"><pre><span></span><code>  <span class="nx">template</span><span class="o">:</span> <span class="p">{</span>
+    <span class="c1">//...</span>
+    <span class="nx">onClick</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">onBallClicked</span>
+  <span class="p">}</span>
+</code></pre></div>
+<h2 id="alternate-jsx-syntax">Alternate JSX syntax<a class="headerlink" href="#alternate-jsx-syntax" title="Permanent link">&para;</a></h2>
+<p>If you are using React for the rest of your application, it can sometimes be confusing to have to step between using JSX for React content descriptors and the plain JS object descriptors for Troika content. To smooth this over, Troika is able to accept JSX elements in place of most JS object descriptors, assuming your build pipeline pre-transforms JSX to <code>React.createElement()</code> calls.</p>
+<p>When representing Troika descriptors in JSX, the <code>facade</code> value is used as the JSX element name, <code>children</code> are represented as nested JSX child elements, and all other properties are written as JSX attributes.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nx">facade</span><span class="o">:</span> <span class="nx">Group3DFacade</span><span class="p">,</span>
+  <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;grp&#39;</span><span class="p">,</span>
+  <span class="nx">rotateZ</span><span class="o">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mf">2</span><span class="p">,</span>
+  <span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nx">facade</span><span class="o">:</span> <span class="nx">BallFacade</span><span class="p">,</span>
+      <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;ball1&#39;</span><span class="p">,</span>
+      <span class="nx">x</span><span class="o">:</span> <span class="o">-</span><span class="mf">2</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nx">facade</span><span class="o">:</span> <span class="nx">BallFacade</span><span class="p">,</span>
+      <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;ball2&#39;</span><span class="p">,</span>
+      <span class="nx">x</span><span class="o">:</span> <span class="mf">2</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>...is equivalent to:</p>
+<div class="highlight"><pre><span></span><code>&lt;Group3DFacade
+  key=&quot;group&quot;
+  rotateZ={Math.PI / 2}
+&gt;
+  &lt;BallFacade
+    key=&quot;ball1&quot;
+    x={-2}
+  /&gt;
+  &lt;BallFacade
+    key=&quot;ball2&quot;
+    x={2}
+  /&gt;
+&lt;/Group3DFacade&gt;
+</code></pre></div>
+<p>While the JSX sugar can often be more readable, it does have a slight performance impact due to more transient objects being created and <code>React.createElement()</code>'s own internal logic being run for each element. Try to avoid it and stick with plain JS descriptors when your scene contains a large number of them.</p>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      Last update: 2021-11-09
+    
+  </small>
+</div>
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../facades/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Facades" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Facades
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../interactivity-and-events/" class="md-footer__link md-footer__link--next" aria-label="Next: Interactivity and Events" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Interactivity and Events
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.29db7785.min.js"></script>
+      
+    
+  </body>
+</html>
